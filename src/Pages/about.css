@@ -1,0 +1,11 @@
+.about-page {
+  background-color: #f8f9fa;
+}
+
+.about-card {
+  transition: transform 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-5px);
+}

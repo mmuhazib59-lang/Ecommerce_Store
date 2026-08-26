@@ -1,0 +1,21 @@
+.services-page {
+  background: #f5f5f7;
+}
+
+.service-card {
+  background: #ffffff;
+  transition: all 0.4s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.service-icon {
+  font-size: 3rem;
+}
+
+.services-page h1 {
+  letter-spacing: -1px;
+}

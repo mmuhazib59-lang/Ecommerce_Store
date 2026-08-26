@@ -1,0 +1,64 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "MacBook Air",
+      "price": 8634,
+      "quantity": 18,
+      "image": "/images/2.webp"
+    },
+    {
+      "id": "2",
+      "name": "iPhone 16 Pro Max",
+      "quantity": 32,
+      "price": 4999,
+      "image": "/images/1.webp"
+    },
+    {
+      "id": "3",
+      "name": "Apple AirPods Max",
+      "quantity": 19,
+      "price": 1699,
+      "image": "/images/6.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Apple Magic Mouse 3",
+      "quantity": 30,
+      "price": 2499,
+      "image": "/images/7.webp"
+    },
+    {
+      "id": "5",
+      "name": "AirPods 3rd Gen",
+      "quantity": 54,
+      "price": 2899,
+      "image": "/images/8.avif"
+    },
+    {
+      "id": "6",
+      "name": "Apple iPad Pro",
+      "quantity": 32,
+      "price": 2499,
+      "image": "/images/9.jpg"
+    },
+    {
+      "id": "7",
+      "name": "iPhone 15 Pro Max",
+      "quantity": 19,
+      "price": 2788,
+      "image": "/images/11.jpg"
+    },
+    {
+      "id": "8",
+      "name": "MT8 Ultra Smart Watch",
+      "quantity": 28,
+      "price": 7500,
+      "image": "/images/12.jpg"
+    }
+  ],
+  "admin": {
+    "username": "admin",
+    "password": "12345"
+  }
+}

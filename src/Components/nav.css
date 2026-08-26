@@ -1,0 +1,140 @@
+.navbar {
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.navbar {
+  z-index: 1000; /* ensures it’s above other content */
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.navbar-brand img {
+  width: 25px;
+  margin-right: 8px;
+}
+
+.nav-link {
+  /* color: #000 ; */
+  font-weight: 500;
+  margin-right: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  height: 3px;
+  width: 0;
+  background-color: #0071e3;
+  transform: translateX(-50%);
+  transition: 0.5s;
+  border-radius: 2px;
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+  width: 70%;
+}
+
+@media (max-width: 768px) {
+  .nav-link::after {
+    content: none !important;
+  }
+}
+
+
+.btn-outline-primary {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+
+.cart-btn {
+  position: relative;
+}
+
+.cart-btn .badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  font-size: 0.7rem;
+  background-color: #007bff;
+  color: #fff;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(50%);
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: #aaa;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+
+.carousel-indicators .active {
+  background-color: #555;
+}
+
+@media (min-width: 768px) {
+  .navbar .nav-link {
+    display: inline-block;         
+  }
+
+  .navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    height: 3px;
+    width: 0;
+    background-color: #0071e3;
+    transform: translateX(-50%);
+    transition: width 0.35s ease;
+    border-radius: 2px;
+  }
+
+  .navbar .nav-link:hover::after,
+  .navbar .nav-link:focus::after,
+  .navbar .nav-link.active::after {
+    width: 70%;
+  }
+}
+
+
+@media (max-width: 767.98px) {
+  .navbar .nav-link {
+    display: block; 
+  }
+
+  
+  .navbar .nav-link::after {
+    content: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+}

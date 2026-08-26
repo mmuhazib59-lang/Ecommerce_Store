@@ -1,0 +1,38 @@
+ #scale{
+
+        transition: 0.3s;
+
+    }
+
+    #scale:hover{
+
+        transform: scale(1.05);
+
+    }
+
+    #blue{
+
+  transition: .3s;
+
+ }
+
+  #blue:hover{
+
+    color: #0071e3;
+
+  }
+
+  .feature-item {
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+.feature-item:hover {
+  transform: scale(1.05);
+
+}
+
+.feature-item:hover strong{
+
+  color: #28a745;
+
+}

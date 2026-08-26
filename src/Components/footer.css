@@ -1,0 +1,50 @@
+.footer {
+  font-family: "Poppins", sans-serif;
+}
+
+.footer h5 {
+  color: #fff;
+}
+
+.footer p, .footer-link {
+  color: #bbb;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  color: #fff;
+  padding-left: 5px;
+}
+
+.footer .form-control {
+  background-color: #fff;
+  border: none;
+  font-size: 0.9rem;
+}
+
+.footer .form-control:focus {
+  box-shadow: none;
+}
+
+.footer .btn-primary {
+  background-color: #0071e3;
+  border: none;
+  font-weight: 500;
+}
+
+.footer .btn-primary:hover {
+  background-color: #005bb5;
+}
+
+ #blue{
+
+  transition: .3s;
+
+ }
+
+  #blue:hover{
+
+    color: #0071e3;
+
+  }
