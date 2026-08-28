@@ -1,23 +1,45 @@
 import React, { useState, useEffect } from "react";
 import Cart from "./Cart";
 import "./product.css";
+import { supabase } from "../src/supabaseClient";
 
-const Products = ({ cartItems, addToCart, updateQuantity, removeFromCart, isCartOpen, toggleCart, clearCart }) => {
+const Products = ({
+  cartItems,
+  addToCart,
+  updateQuantity,
+  removeFromCart,
+  isCartOpen,
+  toggleCart,
+  clearCart,
+}) => {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [sortOrder, setSortOrder] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5001/products")
-      .then(res => res.json())
-      .then(data => setProducts(data));
+    const fetchProducts = async () => {
+      const { data, error } = await supabase
+        .from("products")
+        .select("*");
+
+      if (error) {
+        console.error("Error fetching products:", error);
+        return;
+      }
+
+      setProducts(data || []);
+    };
+
+    fetchProducts();
   }, []);
 
   const filteredProducts = products
-    .filter(p => p.name.toLowerCase().includes(searchTerm.toLowerCase()))
-    .sort((a, b,c,z) => {
-      if (sortOrder === "asc") return a.price - b.price;
-      if (sortOrder === "desc") return b.price - a.price;
+    .filter((p) =>
+      p.name.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .sort((a, b) => {
+      if (sortOrder === "asc") return Number(a.price) - Number(b.price);
+      if (sortOrder === "desc") return Number(b.price) - Number(a.price);
       return 0;
     });
 
@@ -33,6 +55,7 @@ const Products = ({ cartItems, addToCart, updateQuantity, removeFromCart, isCart
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
+
         <select
           className="form-select w-25"
           value={sortOrder}
@@ -41,50 +64,50 @@ const Products = ({ cartItems, addToCart, updateQuantity, removeFromCart, isCart
           <option value="">Sort by Price</option>
           <option value="asc">Low to High</option>
           <option value="desc">High to Low</option>
-         
-
         </select>
       </div>
 
       <div className="row">
-        {filteredProducts.map(product => (
+        {filteredProducts.map((product) => (
           <div key={product.id} className="col-md-3 mb-4">
-           <div className="product-card p-3 shadow-sm text-center">
-  <div className="product-image-wrapper">
-    <img
-      src={product.image}
-      alt={product.name}
-      className="product-image"
-    />
-  </div>
+            <div className="product-card p-3 shadow-sm text-center">
+              <div className="product-image-wrapper">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="product-image"
+                />
+              </div>
 
-  <h5 className="product-name">{product.name}</h5>
+              <h5 className="product-name">{product.name}</h5>
 
-  <p className="product-price">Price: ${product.price}</p>
+              <p className="product-price">
+                Price: ${product.price}
+              </p>
 
-  <p className="product-stock">
-    Qty Available: {product.quantity}
-  </p>
+              <p className="product-stock">
+                Qty Available: {product.quantity}
+              </p>
 
-  <button
-    className="btn btn-outline-success add-cart-btn"
-    onClick={() => addToCart(product)}
-  >
-    Add to Cart
-  </button>
-</div>
+              <button
+                className="btn btn-outline-success add-cart-btn"
+                onClick={() => addToCart(product)}
+              >
+                Add to Cart
+              </button>
+            </div>
           </div>
         ))}
       </div>
 
       <Cart
-  cartItems={cartItems}
-  updateQuantity={updateQuantity}
-  removeFromCart={removeFromCart}
-  isOpen={isCartOpen}
-  toggleCart={toggleCart}
-  clearCart={clearCart}
-/>
+        cartItems={cartItems}
+        updateQuantity={updateQuantity}
+        removeFromCart={removeFromCart}
+        isOpen={isCartOpen}
+        toggleCart={toggleCart}
+        clearCart={clearCart}
+      />
     </div>
   );
 };
